@@ -13,7 +13,7 @@ const padContainer = document.querySelector(".js-pad-container"); // Use querySe
  */
 let computerSequence = []; // track the computer-generated sequence of pad presses
 let playerSequence = []; // track the player-generated sequence of pad presses
-let maxRoundCount = 0; // the max number of rounds, varies with the chosen level
+let maxRoundCount = 8; // the max number of rounds, varies with the chosen level
 let roundCount = 0; // track the number of rounds that have been played so far
 
 /**
@@ -71,8 +71,7 @@ startButton.addEventListener("click", startButtonHandler);
  * Called when the start button is clicked.
  */
 function startButtonHandler() {
-  const level = setLevel();
-  roundCount++;
+    roundCount++;
 
   startButton.classList.add("hidden");
   statusSpan.classList.remove("hidden");
@@ -97,25 +96,7 @@ function padHandler(event) {
   return color;
 }
 
-/**
- * HELPER FUNCTIONS
- */
 
-//  * Sets the level of the game given a `level` parameter.
-//  * Returns the length of the sequence for a valid `level` parameter (1 - 4) or an error message otherwise.
- 
-function setLevel(level = 1) {
-  const levelRange = [8, 14, 20, 31];
-  for (let i = 1; i <= 4; i++) {
-    if (level === i) {
-      maxRoundCount = levelRange[i - 1];
-      return maxRoundCount;
-    }
-  }
-  return "Please enter level 1, 2, 3, or 4";
-}
-
-//  * Returns a randomly selected item from a given array.
 
 function getRandomItem(collection) {
   if (collection.length === 0) return null;
@@ -200,7 +181,7 @@ function checkRound() {
   } else {
     roundCount++;
     playerSequence = [];
-    setText(statusSpan, "Nice! Keep goin!");
+    setText(statusSpan, "Winner!");
     setTimeout(() => playComputerTurn(), 1000);
   }
 }
