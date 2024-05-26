@@ -94,7 +94,7 @@ h1 {
 .pad.activated {
   opacity: 1;
   transform: scale(1.2);
-  motion-rotation: ;
+  
 }
 
 .unclickable {
