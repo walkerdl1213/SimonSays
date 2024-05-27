@@ -22,7 +22,7 @@ body {
 
 main {
   text-align: center;
-  background-color: #000;
+  background-color: black;
   padding: 40px;
 }
 
@@ -41,9 +41,18 @@ h1 {
   font-size: 1rem;
 }
 
+.js-status {
+  display: none;
+}
+
+.js-status:not(.hidden) {
+  display: inline-block;
+}
+
 .status {
   display: none;
   margin-top: 10px;
+  font-size: 1.2rem;
 }
 
 .status.visible {
