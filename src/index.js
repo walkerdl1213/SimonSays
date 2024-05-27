@@ -105,7 +105,8 @@ function activatePads(sequence) {
 
 function playComputerTurn() {
   padContainer.classList.add("unclickable");
-  setText(statusSpan, "The computer's turn!!");
+  alert("Computer's Turn!");
+  setText(statusSpan, "Computer's Turn");
   setText(heading, `Round ${roundCount} of ${maxRoundCount}`);
   const randomColor = getRandomItem(["red", "green", "blue", "yellow"]);
   computerSequence.push(randomColor);
@@ -116,6 +117,7 @@ function playComputerTurn() {
 }
 
 function playHumanTurn() {
+  alert("You're Up!");
   padContainer.classList.remove("unclickable");
   const remainingPresses = computerSequence.length - playerSequence.length;
   setText(statusSpan, `Your turn: ${remainingPresses} presses left`);
